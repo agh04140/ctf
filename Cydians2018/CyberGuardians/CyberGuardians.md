@@ -6,4 +6,23 @@ EnteredSHELL
 
 파일은 32bit로 컴파일 되어있으며, 보호기법은 걸려있지 않다.
 
-![텍스트](https://imgur.com/vz9IcAC.png)
+main함수를 보자.
+
+![텍스트](https://i.imgur.com/utNEvRC.png)
+
+vuln 함수를 호출해준다. 바로 vuln 함수를 보자.
+
+![텍스트](https://i.imgur.com/MDx4rQm.png)
+
+gets로 s변수에 입력을 받으므로 Buffer overflow가 일어난다는 사실이 자명하다.
+
+심지어 이 파일은 NX도 걸려있지 않고, canary도 걸려있지 않으므로, 스택으로 eip을 돌려서shellcode를 실행시켜주면 될 것이다.
+
+하지만 실 서버에는 ASLR이 걸려있기 때문에 stack으로 eip를 돌리는 게 힘들 것이라고 생각을 할 수 있다. 그렇지만, printf로 stack address를 스스로 leak 해준다.
+
+그러므로 시나리오는 stack에 gets로 값을 받음을 이용, shellcode를 stack에 넣어주고, eip를 leak된 값을 이용해서 stack address로 옮겨주면 된다.	끝
+
+![텍스트](https://imgur.com/zP1JqEM)
+
+서버가 닫혀있어서 플래그는 모르겠다.
+
