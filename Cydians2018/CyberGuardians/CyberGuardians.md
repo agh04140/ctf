@@ -66,7 +66,7 @@ p.interactive()
 
 열리지 않는 이유는 간단하게 맨 앞 몇 바이트 부분을 차지하는 파일 시그니처 부분이 다른 값으로 바뀌어져 있기 때문이다.
 
-![텍스트](https://imgur.com/y1DUHGi)
+![텍스트](https://imgur.com/y1DUHGi.png)
 
 위 사진과 같이 hxd로 파일들을 확인해본다면, 왼쪽의 원래 확장자와 맞는 파일 시그니처와 오른쪽의 받은 파일에 시그니처가 값이 다르다.
 
@@ -80,4 +80,4 @@ p.interactive()
 
 이렇게 열리지 않던 파일이 열리게 됨으로써 문제가 풀리게 된다.
 
-#FLAG : 1_m!Ss__the__moooHaaaanDOJEON
+# FLAG : 1_m!Ss__the__moooHaaaanDOJEON
