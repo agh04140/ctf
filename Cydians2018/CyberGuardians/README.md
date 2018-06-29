@@ -8,4 +8,4 @@ EnteredSHELL
 파일은 32bit로 컴파일 되어있으며, 보호기법은 걸려있지 않다.
 
 
-![텍스트](https://imgur.com/vz9IcAC)
+![텍스트](https://i.imgur.com/vz9IcAC.png)
