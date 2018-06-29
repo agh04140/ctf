@@ -22,7 +22,8 @@ gets로 s변수에 입력을 받으므로 Buffer overflow가 일어난다는 사
 
 그러므로 시나리오는 stack에 gets로 값을 받음을 이용, shellcode를 stack에 넣어주고, eip를 leak된 값을 이용해서 stack address로 옮겨주면 된다.	끝
 
-![텍스트](https://imgur.com/zP1JqEM)
+![텍스트](https://imgur.com/zP1JqEM.png)
 
 서버가 닫혀있어서 플래그는 모르겠다.
 
+![텍스트](https://imgur.com/8xRi18e)
