@@ -26,4 +26,4 @@ gets로 s변수에 입력을 받으므로 Buffer overflow가 일어난다는 사
 
 서버가 닫혀있어서 플래그는 모르겠다.
 
-![텍스트](https://imgur.com/8xRi18e)
+![텍스트](https://imgur.com/8xRi18e.png)
